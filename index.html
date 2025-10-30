@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Darkbane Studios — Echoes of Eternity</title>
+  <meta name="description" content="Cinematic dark-fantasy compositions by Irrdaroth. Echoes of Eternity — a saga in sound. Listen on YouTube & Spotify." />
+  <meta property="og:title" content="Darkbane Studios — Echoes of Eternity" />
+  <meta property="og:description" content="Cinematic dark-fantasy compositions by Irrdaroth. Echoes of Eternity — a saga in sound." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/assets/og.png" />
+  <meta name="theme-color" content="#0b0b10" />
+
+  <!-- Twitter cards -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Darkbane Studios — Echoes of Eternity" />
+  <meta name="twitter:description" content="Cinematic dark-fantasy compositions by Darkbane Studios." />
+  <meta name="twitter:image" content="/assets/og.png" />
+  <link rel="icon" href="/assets/hero.png">
+
+  <style>
+    :root{
+      --bg:#0b0b10; --bg-soft:#12121a; --card:#15151f; --muted:#8d93a1;
+      --text:#e9ecf1; --brand:#c8a75a; --brand-2:#8c6c2b; --accent:#9aa6cc;
+      --ring: 0 0 0 2px rgba(200,167,90,.25), 0 0 32px rgba(200,167,90,.12);
+      --shadow: 0 10px 30px rgba(0,0,0,.45);
+      --radius: 16px;
+      --glow: 0 0 0px rgba(200,167,90,0),
+              0 0 0px rgba(200,167,90,0);
+      --glow-hover: 0 10px 28px rgba(200,167,90,.18),
+                    0 0 60px rgba(200,167,90,.10);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
+      background: radial-gradient(1200px 800px at 10% -10%, rgba(200,167,90,.06), transparent 60%),
+                  radial-gradient(1000px 700px at 90% 10%, rgba(154,166,204,.05), transparent 55%),
+                  var(--bg);
+      color:var(--text); letter-spacing:.2px; line-height:1.6;
+    }
+    a{color:var(--brand); text-decoration:none}
+    a:hover{filter:brightness(1.1)}
+    .container{max-width:1200px; margin:0 auto; padding:0 20px}
+
+    /* NAV */
+    .nav{position:sticky; top:0; z-index:50; backdrop-filter: blur(8px);
+         background: rgba(11,11,16,.6); border-bottom:1px solid rgba(255,255,255,.04)}
+    .nav-wrap{display:flex; align-items:center; justify-content:space-between; height:64px}
+    .logo{display:flex; align-items:center; gap:12px; font-weight:700; letter-spacing:.8px}
+    .logo-mark{width:28px; height:28px; border-radius:50%;
+      background:radial-gradient(circle at 40% 35%, var(--brand) 0 35%, #614b1a 60%, #0000 61%),
+                 conic-gradient(from 210deg, rgba(200,167,90,.4), rgba(0,0,0,.0) 35% 75%, rgba(154,166,204,.2));
+      box-shadow: var(--ring)}
+    .nav-links{display:flex; gap:18px}
+    .nav-links a{padding:8px 10px; border-radius:10px; color:#dfe4ee}
+    .nav-links a:hover{background:rgba(255,255,255,.06)}
+    .mobile-toggle{display:none}
+
+    /* HERO */
+    .hero{position:relative; isolation:isolate; overflow:hidden;}
+    .hero::before{content:""; position:absolute; inset:0;
+      background:url('/assets/hero.png') center/cover no-repeat;
+      filter:brightness(.55) saturate(.9) contrast(1.05); z-index:-2}
+    .hero::after{content:""; position:absolute; inset:0;
+      background:radial-gradient(60% 80% at 50% 30%, rgba(12,12,18,.0) 0 55%, rgba(11,11,16,.85) 100%);
+      z-index:-1}
+    .hero-inner{padding:96px 0 72px; display:grid; grid-template-columns:1.15fr .85fr; gap:32px}
+    .kicker{color:var(--brand); text-transform:uppercase; letter-spacing:2px; font-size:.8rem}
+    h1{margin:.2em 0 .35em; font-size: clamp(36px, 5vw, 56px); line-height:1.05;}
+    .lead{color:#cfd5e3; max-width:60ch}
+    .cta-row{margin-top:28px; display:flex; gap:14px; flex-wrap:wrap}
+    .btn{display:inline-flex; align-items:center; gap:10px; padding:12px 18px;
+      background:linear-gradient(180deg, #1c1c29, #12121a); border:1px solid rgba(255,255,255,.08);
+      border-radius:12px; box-shadow:var(--shadow); transition:.2s}
+    .btn:hover{transform:translateY(-1px); box-shadow:0 12px 36px rgba(0,0,0,.55)}
+    .btn.primary{background:linear-gradient(180deg, #2a2212, #15100a); border-color:rgba(200,167,90,.35)}
+
+    /* SECTIONS */
+    section{padding:72px 0; border-top:1px solid rgba(255,255,255,.04)}
+    .section-title{font-size:clamp(22px,3.5vw,32px); margin:0 0 18px}
+    .subtle{color:var(--muted)}
+
+    /* MUSIC */
+    .grid-embed{display:grid; grid-template-columns:1fr 1fr; gap:18px}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01));
+      border:1px solid rgba(255,255,255,.06); border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow)}
+    .card .head{padding:14px 16px; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid rgba(255,255,255,.06)}
+    .card .body{padding:0}
+    iframe{width:100%; height:320px; border:0; display:block}
+
+    /* GALLERY */
+    .gallery{display:grid; grid-template-columns:repeat(3, 1fr); gap:14px}
+    .tile{position:relative; padding-top:56%; overflow:hidden;
+      border-radius:14px; border:1px solid rgba(255,255,255,.06);
+      background:#0f0f16; box-shadow: var(--glow); transition:.25s ease;
+      transform:translateZ(0)}
+    .tile img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
+      filter:saturate(.92) contrast(1.05) brightness(.98); transform:scale(1); transition:transform .35s ease, filter .35s ease}
+    .tile::after{content:""; position:absolute; inset:0; pointer-events:none;
+      background:linear-gradient(180deg, transparent, rgba(0,0,0,.45)); opacity:.9; transition:opacity .25s ease}
+    .tile span{position:absolute; left:12px; bottom:10px; font-size:.9rem; color:#e8e1d0; z-index:1}
+
+    /* Hover Glow + Parallax zoom */
+    .tile:hover{box-shadow: var(--glow-hover); border-color:rgba(200,167,90,.35)}
+    .tile:hover img{transform:scale(1.06); filter:saturate(1) contrast(1.08) brightness(1)}
+    .tile:hover::after{opacity:.7}
+
+    /* LIGHTBOX (Gloom) */
+    .lightbox{position:fixed; inset:0; z-index:100; display:none; align-items:center; justify-content:center; padding:24px;
+      background:rgba(6,6,10,.74); backdrop-filter: blur(10px) saturate(120%) brightness(0.9);}
+    .lightbox.open{display:flex}
+    .lb-wrap{position:relative; max-width:min(92vw,1400px); max-height:88vh; display:flex; align-items:center; justify-content:center}
+    .lb-img{max-width:100%; max-height:88vh; border-radius:12px;
+      box-shadow:0 30px 80px rgba(0,0,0,.8), 0 0 80px rgba(200,167,90,.18);
+      filter:contrast(1.02) saturate(1.02)}
+    .lb-caption{position:absolute; left:0; right:0; bottom:-46px; text-align:center; color:#cfc8b1; font-size:.95rem}
+    .lb-close,.lb-prev,.lb-next{
+      position:absolute; top:50%; transform:translateY(-50%); color:#e9ecf1; background:rgba(20,20,28,.55);
+      border:1px solid rgba(255,255,255,.15); width:44px; height:44px; border-radius:999px;
+      display:grid; place-items:center; cursor:pointer; user-select:none; transition:.2s}
+    .lb-close{top:12px; right:12px; transform:none}
+    .lb-prev{left:-56px}
+    .lb-next{right:-56px}
+    .lb-close:hover,.lb-prev:hover,.lb-next:hover{background:rgba(34,28,18,.8); border-color:rgba(200,167,90,.45)}
+    .lb-hidden{display:none}
+
+    /* TIMELINE */
+    .timeline{display:grid; grid-template-columns:1fr 1fr; gap:16px}
+    .beat{padding:14px 16px; background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01)); border:1px solid rgba(255,255,255,.06); border-radius:12px}
+    .beat strong{color:var(--brand)}
+
+    /* ABOUT */
+    .about{display:grid; grid-template-columns:1.1fr .9fr; gap:22px; align-items:start}
+    .about .card p{padding:16px}
+
+    /* FOOTER */
+    footer{padding:40px 0 56px; border-top:1px solid rgba(255,255,255,.06); color:#bfc6d8}
+    .foot{display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap}
+    .social{display:flex; gap:12px}
+    .chip{padding:8px 12px; border-radius:999px; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.08)}
+
+    /* RESPONSIVE */
+    @media (max-width: 980px){
+      .hero-inner{grid-template-columns:1fr; padding:72px 0 56px}
+      .grid-embed{grid-template-columns:1fr}
+      .gallery{grid-template-columns:repeat(2, 1fr)}
+      .timeline{grid-template-columns:1fr}
+      .about{grid-template-columns:1fr}
+      .lb-prev{left:8px} .lb-next{right:8px}
+    }
+    @media (max-width: 520px){
+      .nav-links{display:none}
+      .mobile-toggle{display:block}
+      .gallery{grid-template-columns:1fr}
+      iframe{height:240px}
+      .lb-caption{bottom:-38px; font-size:.85rem}
+      .lb-close{top:8px; right:8px}
+    }
+  </style>
+</head>
+<body>
+  <!-- NAVBAR -->
+  <nav class="nav">
+    <div class="container nav-wrap">
+      <div class="logo" aria-label="Darkbane Studios">
+        <span class="logo-mark" aria-hidden="true"></span>
+        <span>Darkbane Studios</span>
+      </div>
+      <div class="nav-links">
+        <a href="#music">Music</a>
+        <a href="#artworks">Artworks</a>
+        <a href="#saga">Saga</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <button class="mobile-toggle btn" onclick="document.querySelector('.nav-links').classList.toggle('open')">Menu</button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="container hero-inner">
+      <div>
+        <div class="kicker">Echoes of Eternity — The Irrdaroth Saga</div>
+        <h1>Cinematic Dark-Fantasy Music<br/>for the Quiet After the Storm</h1>
+        <p class="lead">Irrdaroth composes emotional orchestral soundscapes — smoky female vocals, strings, choirs, and the glow of a distant, sacred light. Enter the world of <em>Echoes of Eternity</em>.</p>
+        <div class="cta-row">
+          <a class="btn primary" href="https://youtube.com/@darkbanestudios" target="_blank" rel="noopener">Listen on YouTube</a>
+          <a class="btn" href="#music">Latest Releases</a>
+        </div>
+      </div>
+      <div class="card" aria-label="Featured video">
+        <div class="head"><strong>Featured</strong><span class="subtle">4K · Headphones Recommended</span></div>
+        <div class="body">
+          <iframe title="Darkbane Studios — Featured Video" src="https://www.youtube.com/embed/eyq5l620Gtc" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- MUSIC -->
+  <section id="music">
+    <div class="container">
+      <h2 class="section-title">Music</h2>
+      <p class="subtle">Latest singles from the <em>Echoes of Eternity</em> saga.</p>
+      <div class="grid-embed">
+        <div class="card">
+          <div class="head"><strong>Fragments of Eternity</strong><span class="subtle">Cinematic · Dark Fantasy</span></div>
+          <div class="body">
+            <iframe title="Fragments of Eternity — YouTube" src="https://www.youtube.com/embed/FRAGMENTS_ID_HERE" loading="lazy"></iframe>
+          </div>
+        </div>
+        <div class="card">
+          <div class="head"><strong>Echoheart</strong><span class="subtle">Emotional · Sacred</span></div>
+          <div class="body">
+            <iframe title="Echoheart — YouTube" src="https://www.youtube.com/embed/eyq5l620Gtc" loading="lazy"></iframe>
+          </div>
+        </div>
+        <div class="card">
+          <div class="head"><strong>Spotify Playlist</strong><span class="subtle">Stream the saga</span></div>
+          <div class="body">
+            <iframe title="Spotify — Echoes of Eternity" src="https://open.spotify.com/embed/playlist/PLAYLIST_ID" loading="lazy"></iframe>
+          </div>
+        </div>
+        <div class="card">
+          <div class="head"><strong>SoundCloud (optional)</strong><span class="subtle">Alternative stream</span></div>
+          <div class="body">
+            <iframe title="SoundCloud" src="https://w.soundcloud.com/player/?url=" loading="lazy"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ARTWORKS -->
+  <section id="artworks">
+    <div class="container">
+      <h2 class="section-title">Artworks</h2>
+    <p class="subtle">Cinematic 4K visuals — no text, pure atmosphere.</p>
+
+      <div class="gallery" id="gallery">
+        <!-- Each tile contains data attributes for Lightbox -->
+        <div class="tile" data-caption="Fragments of Eternity" data-src="/assets/fragments.png">
+          <img alt="Fragments of Eternity" src="/assets/fragments.png" loading="lazy"><span>Fragments of Eternity</span>
+        </div>
+        <div class="tile" data-caption="Echoheart" data-src="/assets/echoheart.png">
+          <img alt="Echoheart" src="/assets/echoheart.png" loading="lazy"><span>Echoheart</span>
+        </div>
+        <div class="tile" data-caption="Echoes of the Fallen" data-src="/assets/echoes.png">
+          <img alt="Echoes of the Fallen" src="/assets/echoes.png" loading="lazy"><span>Echoes of the Fallen</span>
+        </div>
+        <div class="tile" data-caption="Ashes of Tomorrow" data-src="/assets/ashes.png">
+          <img alt="Ashes of Tomorrow" src="/assets/ashes.png" loading="lazy"><span>Ashes of Tomorrow</span>
+        </div>
+        <div class="tile" data-caption="Crown of Cinders" data-src="/assets/crown.png">
+          <img alt="Crown of Cinders" src="/assets/crown.png" loading="lazy"><span>Crown of Cinders</span>
+        </div>
+        <div class="tile" data-caption="Sanctum of Sorrow" data-src="/assets/sanctum.png">
+          <img alt="Sanctum of Sorrow" src="/assets/sanctum.png" loading="lazy"><span>Sanctum of Sorrow</span>
+        </div>
+        <div class="tile" data-caption="Veins of the Void" data-src="/assets/veins.png">
+          <img alt="Veins of the Void" src="/assets/veins.png" loading="lazy"><span>Veins of the Void</span>
+        </div>
+        <div class="tile" data-caption="Weaver of Stars" data-src="/assets/weaver.png">
+          <img alt="Weaver of Stars" src="/assets/weaver.png" loading="lazy"><span>Weaver of Stars</span>
+        </div>
+        <div class="tile" data-caption="The Hollow Crown" data-src="/assets/hollow.png">
+          <img alt="The Hollow Crown" src="/assets/hollow.png" loading="lazy"><span>The Hollow Crown</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" aria-modal="true" role="dialog" aria-label="Image viewer">
+    <button class="lb-close" id="lbClose" aria-label="Close">✕</button>
+    <button class="lb-prev" id="lbPrev" aria-label="Previous">‹</button>
+    <div class="lb-wrap">
+      <img class="lb-img" id="lbImg" alt="">
+      <div class="lb-caption" id="lbCap"></div>
+    </div>
+    <button class="lb-next" id="lbNext" aria-label="Next">›</button>
+  </div>
+
+  <!-- SAGA TIMELINE -->
+  <section id="saga">
+    <div class="container">
+      <h2 class="section-title">Echoes of Eternity — Saga Timeline</h2>
+      <div class="timeline">
+        <div class="beat"><strong>1.</strong> The Beginning — Ursprung & Erwachen</div>
+        <div class="beat"><strong>2.</strong> Embers of the Arcane — Magie & Macht</div>
+        <div class="beat"><strong>3.</strong> Blood and Oath — Schwur & Opfer</div>
+        <div class="beat"><strong>4.</strong> The Hollow Crown — Schuld & Herrschaft</div>
+        <div class="beat"><strong>5.</strong> Echoes of the Fallen — Erinnerung & Verlust</div>
+        <div class="beat"><strong>6.</strong> Weaver of Stars — Schöpfung & Wiedergeburt</div>
+        <div class="beat"><strong>7.</strong> Ashes of Tomorrow — Hoffnung & Übergang</div>
+        <div class="beat"><strong>8.</strong> Throne of Glass — Zerbrechlichkeit & Wahrheit</div>
+        <div class="beat"><strong>9.</strong> Veins of the Void — Auflösung & Frieden</div>
+        <div class="beat"><strong>10.</strong> Sanctum of Sorrow — Andacht & Trauer</div>
+        <div class="beat"><strong>11.</strong> Crown of Cinders — Verfall & Erbe</div>
+        <div class="beat"><strong>12.</strong> Eclipsed Faith — Glaube & Schatten</div>
+        <div class="beat"><strong>13.</strong> Temple of Thorns — Schmerz & Wiedergeburt</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT / CONTACT -->
+  <section id="about">
+    <div class="container about">
+      <div class="card">
+        <div class="head"><strong>About Darkbane Studios</strong><span class="subtle">Irrdaroth — Composer</span></div>
+        <p>I create cinematic dark-fantasy music with a smoky female lead, strings, choirs, and deep percussion. Each release is a chapter of <em>Echoes of Eternity</em> — a saga about origin, loss, and transcendence.</p>
+      </div>
+      <div class="card" id="contact">
+        <div class="head"><strong>Contact & Links</strong><span class="subtle">Join the Order of Echoes</span></div>
+        <div class="body" style="padding:16px">
+          <div class="social">
+            <a class="chip" href="https://youtube.com/@darkbanestudios" target="_blank" rel="noopener">YouTube</a>
+            <a class="chip" href="https://www.tiktok.com/@darkbanestudios" target="_blank" rel="noopener">TikTok</a>
+            <a class="chip" href="https://www.instagram.com/darkbanestudios" target="_blank" rel="noopener">Instagram</a>
+            <a class="chip" href="https://open.spotify.com/artist/ARTIST_ID" target="_blank" rel="noopener">Spotify</a>
+            <a class="chip" href="https://discord.gg/YOURCODE" target="_blank" rel="noopener">Discord</a>
+          </div>
+          <p class="subtle" style="margin-top:12px">Email: <a href="mailto:contact@darkbanestudios.com">contact@darkbanestudios.com</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container foot">
+      <div>© <span id="year"></span> Darkbane Studios · Irrdaroth — Echoes of Eternity</div>
+      <div class="subtle">Design by Darkbane Studios & Echo</div>
+    </div>
+  </footer>
+
+  <script>
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Simple Lightbox logic
+    (function(){
+      const tiles = Array.from(document.querySelectorAll('#gallery .tile'));
+      const lb = document.getElementById('lightbox');
+      const img = document.getElementById('lbImg');
+      const cap = document.getElementById('lbCap');
+      const prev = document.getElementById('lbPrev');
+      const next = document.getElementById('lbNext');
+      const closeBtn = document.getElementById('lbClose');
+      let index = 0;
+
+      function openAt(i){
+        index = (i + tiles.length) % tiles.length;
+        const t = tiles[index];
+        img.src = t.dataset.src;
+        img.alt = t.dataset.caption || '';
+        cap.textContent = t.dataset.caption || '';
+        lb.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      }
+      function close(){
+        lb.classList.remove('open');
+        document.body.style.overflow = '';
+        setTimeout(()=>{ img.src = ''; }, 200);
+      }
+      function nav(delta){ openAt(index + delta); }
+
+      tiles.forEach((t,i)=>{
+        t.addEventListener('click', ()=>openAt(i));
+        t.addEventListener('keydown', (e)=>{ if(e.key==='Enter' || e.key===' ') { e.preventDefault(); openAt(i);} });
+        t.tabIndex = 0; // accessibility
+        t.setAttribute('role','button');
+        t.setAttribute('aria-label', (t.dataset.caption || 'Artwork') + ', open viewer');
+      });
+
+      prev.addEventListener('click', ()=>nav(-1));
+      next.addEventListener('click', ()=>nav(1));
+      closeBtn.addEventListener('click', close);
+      lb.addEventListener('click', (e)=>{ if(e.target===lb) close(); });
+
+      window.addEventListener('keydown', (e)=>{
+        if(!lb.classList.contains('open')) return;
+        if(e.key==='Escape') close();
+        else if(e.key==='ArrowLeft') nav(-1);
+        else if(e.key==='ArrowRight') nav(1);
+      });
+    })();
+  </script>
+</body>
+</html>
